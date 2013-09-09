@@ -6,10 +6,10 @@
 /*////////////////////////////////////////////////////*/@import "bootstrap";
 
 /*////////////////////////////////////////////////////*/
-/*          Variables 
-/*
-/*
-/*
+/*          Variables                                 */
+$lightGray: #999;
+$orangeMediumLight: #ff8800;
+
 /*////////////////////////////////////////////////////*/
 
 
@@ -61,7 +61,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #999;
+  color: $lightGray;
 }
 
 p {
@@ -74,8 +74,8 @@ p {
 footer {
 	margin-top: 45px;
 	padding-top: 5px;
-	border-top: 1px solid #ff8800;
-	color: #999;
+	border-top: 1px solid $orangeMediumLight;
+	color: $lightGray;
 	a{
 		color: #555;
 		&:hover{
