@@ -14,6 +14,11 @@ group :test do
 	gem 'capybara', '2.1.0'
 end
 
+#Custom Gem
+gem 'faker', '1.1.2'
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', :git => 'git://github.com/yrgoldteeth/bootstrap-will_paginate.git'
+
 
 # Use sqlite3 as the database for Active Record
 gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.git', :branch => '3'

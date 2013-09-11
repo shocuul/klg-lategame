@@ -46,7 +46,19 @@ textarea{
 .logo-bottom{
 	height: 100px;
 }
-
+/* Users index */
+.users{
+	list-style: none;
+	margin: 0;
+	li{
+		overflow: auto;
+		padding: 10px 0;
+		border-top: 1px solid $lightGray;
+		&:last-child{
+			border-bottom: 1px solid $lightGray;
+		}
+	}
+}
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
