@@ -1,4 +1,6 @@
 KlgLategame::Application.routes.draw do
+  resources :items
+
   resources :users do
     member do
       get :following, :followers
