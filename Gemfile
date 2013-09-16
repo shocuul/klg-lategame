@@ -17,7 +17,7 @@ end
 #Custom Gem
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
-gem "paperclip-dropbox", ">= 1"
+gem "paperclip", "~> 3.0"
 gem 'bootstrap-will_paginate', :git => 'git://github.com/yrgoldteeth/bootstrap-will_paginate.git'
 
 
