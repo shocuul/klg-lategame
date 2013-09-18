@@ -10,6 +10,7 @@
 /*////////////////////////////////////////////////////*/
 /*          Variables                                 */
 $lightGray: #D3D3D3;
+$letterColor: #bcbcbc;
 $orangeMediumLight: #ff8800;
 @mixin box_sizing{
 	-moz-box-sizing: border-box;
@@ -26,6 +27,13 @@ html{
 }
 
 body{
+	background: #e3ae7b no-repeat 50% 0 fixed;
+	background-image: image-url("background.jpg");
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	color: $letterColor;
 	padding-top: 70px;
 }
 
@@ -90,41 +98,22 @@ p {
 
 
 #item{
-	width: 100%;
-	height: 100%;
--moz-border-radius: 5px;
--webkit-border-radius: 5px;
-border-radius: 5px;
-/*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
--moz-box-shadow: 0px 0px 2px #000000;
--webkit-box-shadow: 0px 0px 2px #000000;
-box-shadow: 0px 0px 2px #000000;
-/*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = 'transparent', endColorstr = '#ff7214');
-/*INNER ELEMENTS MUST NOT BREAK THIS ELEMENTS BOUNDARIES*/
-/*Element must have a height (not auto)*/
-/*All filters must be placed together*/
--ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = 'transparent', endColorstr = '#ff7214')";
-/*Element must have a height (not auto)*/
-/*All filters must be placed together*/
-background-image: -moz-linear-gradient(top, transparent, #ff7214);
-background-image: -ms-linear-gradient(top, transparent, #ff7214);
-background-image: -o-linear-gradient(top, transparent, #ff7214);
-background-image: -webkit-gradient(linear, center top, center bottom, from(transparent), to(#ff7214));
-background-image: -webkit-linear-gradient(top, transparent, #ff7214);
-background-image: linear-gradient(top, transparent, #ff7214);
--moz-background-clip: padding;
--webkit-background-clip: padding-box;
-background-clip: padding-box;
-/*Use "background-clip: padding-box" when using rounded corners to avoid the gradient bleeding through the corners*/
-/*--IE9 WILL PLACE THE FILTER ON TOP OF THE ROUNDED CORNERS--*/
-opacity: 0.8;
--ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 80);
-/*-ms-filter must come before filter*/
-filter: alpha(opacity = 80);
-/*INNER ELEMENTS MUST NOT BREAK THIS ELEMENTS BOUNDARIES*/
-/*All filters must be placed together*/
+	background: #232323;
+	border: 1px solid #383838;
+	box-shadow: #000 0px 0px 0px 1px;
+	-webkit-box-shadow: #000 0px 0px 0px 1px;
+	-moz-box-shadow: #000 0px 0px 0px 1px;
+	color: #cdcdcd;
+	line-height: 180%;
+	margin-bottom: 10px;
+	padding: 10px;
+}
 
+#contenedor{
+	background: rgba(21,21,21,0.84);
+	box-shadow: rgba(0,0,0,0.7) 0px 1px 8px, inset rgba(0,0,0,0.4) 0px 0px 0px 1px;
+	-webkit-box-shadow: rgba(0,0,0,0.7) 0px 1px 8px, inset rgba(0,0,0,0.4) 0px 0px 0px 1px;
+	-moz-box-shadow: rgba(0,0,0,0.7) 0px 1px 8px, inset rgba(0,0,0,0.4) 0px 0px 0px 1px;
 }
 /* footer */
 
