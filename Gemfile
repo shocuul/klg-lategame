@@ -21,6 +21,8 @@ gem "paperclip", "~> 3.0"
 gem "ckeditor"
 gem 'bootstrap-will_paginate', :git => 'git://github.com/yrgoldteeth/bootstrap-will_paginate.git'
 
+#Gema para Dumpear la base de datos
+gem 'seed_dump'
 
 # Use sqlite3 as the database for Active Record
 gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.git', :branch => '3'
