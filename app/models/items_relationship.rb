@@ -1,6 +1,7 @@
 class ItemsRelationship < ActiveRecord::Base
-	belongs_to :item_up, class_name: "Item"
-	belongs_to :item_down, class_name: "Item"
-	validates :item_up_id, presence: true
-	validates :item_down_id, presence: true 
+	belongs_to :upgrade, class_name: "Item"
+	belongs_to :downgrade, class_name: "Item"
+
+	validates :upgrade_id, presence: true
+	validates :downgrade_id, presence: true 
 end

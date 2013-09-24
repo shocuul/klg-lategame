@@ -3,26 +3,34 @@
 #
 ##########################################################
 class Item < ActiveRecord::Base
-	#attr_accessible :image
-	has_many :items_relationships, foreign_key: "item_up_id"
-	has_many :reverse_items_relationships, foreign_key: "item_down_id", class_name: "ItemsRelationship"
+	
+	has_many :items_relationships, foreign_key: "downgrade_id", dependent: :destroy
+	has_many :upgrades, through: :items_relationships, source: :upgrade
 
-	has_many :items_up, through: :items_relationships, source: :item_up
-	has_many :items_down, through: :reverse_items_relationships, source: :item_down
+
+	has_many :reverse_items_relationships, foreign_key: "upgrade_id",
+										   class_name: "ItemsRelationship",
+										   dependent: :destroy
+
+	has_many :downgrades, through: :reverse_items_relationships, source: :downgrade
+
+
 
 	validates :image, :attachment_presence => true
 	has_attached_file :image
 
-
-	def relation?(other_item)
-		items_relationships.find_by(item_up_id: other_item.id)
+	def anyupgrade?(other_item)
+		items_relationships.find_by(upgrade_id: other_item.id)
 	end
 
-	def createrelation!(other_item)
-		items_relationships.create!(item_down_id: self.id, item_up_id: other_item.id)
+	def makeupgrade!(other_item)
+		items_relationships.create!(upgrade_id: other_item.id)
 	end
 
-	def destroyrelation!(other_item)
-		items_relationships.find_by(item_up_id: other_item.id).destroy!
+	def destroyupgrade(other_item)
+		items_relationships.find_by(upgrade_id: other_item.id).destroy!
 	end
+	
+
 end
+

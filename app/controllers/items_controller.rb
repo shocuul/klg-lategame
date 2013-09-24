@@ -37,10 +37,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def item_up
-    @item =     
-  end
-
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
