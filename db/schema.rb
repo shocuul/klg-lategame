@@ -28,15 +28,15 @@ ActiveRecord::Schema.define(version: 20130923173405) do
   add_index "items", ["id"], name: "index_items_on_id"
 
   create_table "items_relationships", force: true do |t|
-    t.integer  "item_up_id"
-    t.integer  "item_down_id"
+    t.integer  "upgrade_id"
+    t.integer  "downgrade_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "items_relationships", ["item_down_id"], name: "index_items_relationships_on_item_down_id"
-  add_index "items_relationships", ["item_up_id", "item_down_id"], name: "index_items_relationships_on_item_up_id_and_item_down_id", unique: true
-  add_index "items_relationships", ["item_up_id"], name: "index_items_relationships_on_item_up_id"
+  add_index "items_relationships", ["downgrade_id"], name: "index_items_relationships_on_downgrade_id"
+  add_index "items_relationships", ["upgrade_id", "downgrade_id"], name: "index_items_relationships_on_upgrade_id_and_downgrade_id", unique: true
+  add_index "items_relationships", ["upgrade_id"], name: "index_items_relationships_on_upgrade_id"
 
   create_table "microposts", force: true do |t|
     t.string   "content"
