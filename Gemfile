@@ -18,6 +18,7 @@ end
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem "paperclip", "~> 3.0"
+gem "ckeditor"
 gem 'bootstrap-will_paginate', :git => 'git://github.com/yrgoldteeth/bootstrap-will_paginate.git'
 
 
