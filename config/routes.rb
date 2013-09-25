@@ -1,4 +1,6 @@
 KlgLategame::Application.routes.draw do
+  get "items_relationship/create"
+  get "items_relationship/destroy"
   resources :items
 
   resources :users do

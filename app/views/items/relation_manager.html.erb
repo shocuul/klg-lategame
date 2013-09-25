@@ -1,8 +1,36 @@
-<div class="row">
-	<p> Hola soy el controlador :D</p>		
+
+<%= render 'info'  %>
+
+<%= link_to 'Volver', @item ,class: "btn btn-success"  %>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+		<th>Imagen</th>
+		<th>Nombre</th>
+		<th>Relacion</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @allItems.each do |item|  %>
+		<tr>
+			<td><%= image_tag item.image.url  %></td>
+			<td><%= item.name %></td>
+			<th><% if @item.anyupgrade?(item)  %>
+			<%= form_for(@item.items_relationships.build(upgrade_id: item.id)) do |f|  %>
+			<%= f.hidden_field :upgrade_id  %>
+			<%= f.submit "Agregar Relacion", class: "btn btn-success"  %>
+			<% end  %>
+			<% else  %>
+			
+			<% end  %></th>
+		</tr>
+		<% end  %>
+	</tbody>
+</table>
+	
 
 
 
 
 
-</div>
