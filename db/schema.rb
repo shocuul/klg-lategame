@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130912222648) do
+ActiveRecord::Schema.define(version: 20130926172604) do
+
+  create_table "item_relationships", force: true do |t|
+    t.integer  "upgrade_id"
+    t.integer  "downgrade_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "item_relationships", ["downgrade_id"], name: "index_item_relationships_on_downgrade_id"
+  add_index "item_relationships", ["upgrade_id", "downgrade_id"], name: "index_item_relationships_on_upgrade_id_and_downgrade_id", unique: true
+  add_index "item_relationships", ["upgrade_id"], name: "index_item_relationships_on_upgrade_id"
 
   create_table "items", force: true do |t|
     t.string   "name"
@@ -26,6 +37,17 @@ ActiveRecord::Schema.define(version: 20130912222648) do
   end
 
   add_index "items", ["id"], name: "index_items_on_id"
+
+  create_table "items_relationships", force: true do |t|
+    t.integer  "upgrade_id"
+    t.integer  "downgrade_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "items_relationships", ["downgrade_id"], name: "index_items_relationships_on_downgrade_id"
+  add_index "items_relationships", ["upgrade_id", "downgrade_id"], name: "index_items_relationships_on_upgrade_id_and_downgrade_id", unique: true
+  add_index "items_relationships", ["upgrade_id"], name: "index_items_relationships_on_upgrade_id"
 
   create_table "microposts", force: true do |t|
     t.string   "content"

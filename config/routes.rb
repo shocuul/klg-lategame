@@ -1,7 +1,5 @@
 KlgLategame::Application.routes.draw do
-  get "items_relationship/create"
-  get "items_relationship/destroy"
-  resources :items
+
 
   resources :users do
     member do
@@ -17,7 +15,7 @@ KlgLategame::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only:[:create, :destroy]
   resources :relationships, only: [:create, :destroy]
-  resources :items_relationship, only: [:create, :destroy]
+  resources :item_relationships, only: [:create, :destroy]
   root 'static_pages#home'
   match '/help', to: 'static_pages#help', via: 'get'
   match '/signup', to: 'users#new', via: 'get'

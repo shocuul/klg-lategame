@@ -4,33 +4,28 @@
 ##########################################################
 class Item < ActiveRecord::Base
 	
-	has_many :items_relationships, foreign_key: "downgrade_id", dependent: :destroy
-	has_many :upgrades, through: :items_relationships, source: :upgrade
+	has_many :item_relationships, foreign_key: "upgrade_id", dependent: :destroy
+	has_many :upgrade_items, through: :item_relationships, source: :downgrade
 
-
-	has_many :reverse_items_relationships, foreign_key: "upgrade_id",
-										   class_name: "ItemsRelationship",
-										   dependent: :destroy
-
-	has_many :downgrades, through: :reverse_items_relationships, source: :downgrade
-
-
+	has_many :reverse_item_relationships, foreign_key: "downgrade_id",
+										  class_name: "ItemRelationship",
+										  dependent:  :destroy
+	has_many :downgrade_items, through: :reverse_item_relationships, source: :upgrade
 
 	validates :image, :attachment_presence => true
 	has_attached_file :image
 
 	def anyupgrade?(other_item)
-		items_relationships.find_by(upgrade_id: other_item.id)
+		item_relationships.find_by(downgrade_id: other_item.id)
 	end
 
 	def makeupgrade!(other_item)
-		items_relationships.create!(upgrade_id: other_item.id)
+		item_relationships.create!(downgrade_id: other_item.id)
 	end
 
 	def destroyupgrade(other_item)
-		items_relationships.find_by(upgrade_id: other_item.id).destroy!
+		item_relationships.find_by(downgrade_id: other_item.id).destroy!
 	end
 	
 
 end
-

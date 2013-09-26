@@ -12,16 +12,20 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% @allItems.each do |item|  %>
+
+		<% @allItems.each do |thing|  %>
 		<tr>
-			<td><%= image_tag item.image.url  %></td>
-			<td><%= item.name %></td>
-			<th><% if @item.anyupgrade?(item)  %>
-			<%= form_for(@item.items_relationships.build(upgrade_id: item.id)) do |f|  %>
-			<%= f.hidden_field :upgrade_id  %>
-			<%= f.submit "Agregar Relacion", class: "btn btn-success"  %>
-			<% end  %>
+
+			<td><%= image_tag thing.image.url  %></td>
+			<td><%= thing.name %></td>
+			<th><% if @item.anyupgrade?(thing)  %>
+			<%= link_to "Quitar Relacion", item_relationship_path , upgrade_id: thing.id, downgrade_id: @item.id , method: :delete  %>
 			<% else  %>
+			<%= form_for(thing.item_relationships.build(upgrade_id: thing.id, downgrade_id: @item.id)) do |f|  %>
+			<%= f.hidden_field :downgrade_id  %>
+			<%= f.hidden_field :upgrade_id  %>
+			<%= f.submit "Este item es upgrade", class:"btn  btn-primary"  %>
+			<% end  %>
 			
 			<% end  %></th>
 		</tr>
