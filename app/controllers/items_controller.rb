@@ -63,8 +63,9 @@ class ItemsController < ApplicationController
   end
 
   def relationships
-    @allItems = Item.all
+    
     @item = Item.find(params[:id])
+    @allItems = Item.all
     render 'relation_manager'
   end
 
