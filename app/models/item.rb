@@ -12,12 +12,12 @@ class Item < ActiveRecord::Base
 										  dependent:  :destroy
 	has_many :downgrade_items, through: :reverse_item_relationships, source: :downgrade
 
-	validates :name , :price, :description,  presence: true
+	validates :name , :price, :description, presence: true
 	validates :image, :attachment_presence => true
 	has_attached_file :image
 
 	def anyupgrade?(other_item)
-		item_relationships.find_by(downgrade_id: other_item.id)
+		item_relationships.find_by(upgrade_id: other_item.id)
 	end
 
 	def anydowngrade?(other_item)

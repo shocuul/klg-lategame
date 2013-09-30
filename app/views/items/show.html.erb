@@ -51,7 +51,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% if @item.downgrade_items.any? %>
+			<% if @item.downgrade_items.any?%>
 			<% @item.downgrade_items.each do |item|  %>
 			<tr>
 				<td> <%= image_tag item.image.url  %></td>
