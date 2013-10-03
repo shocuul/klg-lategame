@@ -69,6 +69,46 @@ textarea{
 		}
 	}
 }
+ul#item-list{
+	a{
+		.name{
+			height: 42px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: normal;
+			width: 74px;
+		}
+	}
+	}
+
+.icon-lol{
+	width: 64px;
+	height: 64px;
+}
+.info{
+	display: block;
+	line-height: 14px;
+	text-align: center;
+}
+.item-box {
+
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: normal;
+
+	display: inline-block;
+	position: relative;
+	vertical-align: middle; 
+	padding:15px;
+	 /*background-image: url(../images/zigzag.png); */ 
+	 background: #969696; 
+	 border:1px solid rgba(0,0,0,0.4); 
+	 color:#fff; 
+	 text-shadow:1px 1px 0 rgba(0,0,0,0.5); 
+	 border-radius:3px;
+	 &:hover {
+	 	background:#cd2122; color:#fff;}
+	}
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
