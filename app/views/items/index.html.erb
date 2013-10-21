@@ -1,12 +1,17 @@
 <h1>Listing items</h1>
 
-<ul id="item-list">
+<div class="item-list">
   <% @items.each do |item|  %>
-  <li class="item-box">
-  <%= link_to (content_tag(:span class:"icon-lol", ""))  %>
-  </li>
+  <ul class="item-box">
+  <%= link_to item do  %>
+      <span class="icon-lol">
+        <span style="background:url(<%= item.image.url %>)"></span>
+      </span>
+      </ul>
+  <% end  %>
+  
 <% end  %>
-</ul>
+</div>
 <table>
   <thead>
     <tr>
