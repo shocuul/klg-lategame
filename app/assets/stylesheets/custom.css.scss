@@ -60,7 +60,6 @@ textarea{
 .info{
 	text-decoration: none;
 	text-align: center;
-	pa
 }
 /* Users index */
 .users{
@@ -264,6 +263,11 @@ aside{
 	}
 }
 
+.navbar-nav{
+	padding-top: 1em;
+	vertical-align: middle;
+}
+
 /* Miscellaneous */
 
 .debug_dump{
@@ -272,4 +276,8 @@ aside{
 	width: 100%;
 	margin-top: 45px;
 	@include box_sizing;
+}
+.navbar-brand{
+	padding: 0;
+	margin: 0;
 }

@@ -1,0 +1,17 @@
+- provide(:title, 'Home')
+- if signed_in?
+  .row
+    %aside.col-md-4
+      %section= render 'shared/user_info'
+      %section= render 'shared/stats'
+      %section= render 'shared/micropost_form'
+    .col-md-8
+      %h3 Muro
+      = render 'shared/feed'
+- else
+  .jumbotron
+    .container
+      %h1 Bienvenidos a LateGame
+      %h2 Esta es la pagina de inicio
+      = link_to "Registrate", signup_path, class: "btn btn-primary btn-lg"
+  = link_to image_tag("logo.png", alt: "LateGame", class:"logo-bottom"), 'http://rubyonrails.org/'
