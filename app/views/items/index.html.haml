@@ -1,10 +1,12 @@
 %h1 Listing items
-.item-list
-  - @items.each do |item|
-    %ul.item-box
-      = link_to item do
-        %span.icon-lol
-          %span{style: "background:url(#{item.image.url})"}
+%ul
+- @items.each do |item|
+  %li.i-box
+    = link_to item, rel: "tooltip", title: "#{render 'info', item: item}" do
+      %span.icon-lol
+        <img src="#{item.image.url}" />
+      %span.name-lol #{item.name}  
+
 %table
   %thead
     %tr
