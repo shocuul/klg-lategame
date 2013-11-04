@@ -1,0 +1,52 @@
+= render 'info'
+= link_to 'Editar', edit_item_path(@item), class: "btn btn-primary"
+|
+\#{link_to 'Volver', items_path, class: "btn btn-success"} |
+\#{link_to 'Configurar', relationships_item_path(@item), class: "btn btn-warning"}
+%ul#upgradeTap.nav.nav-tabs
+  %li.active
+    %a{href: "#upgrade"} Se Construye en
+  %li
+    %a{href: "#downgrade"} Se Construye apartir de
+.tab-content
+  #upgrade.tab-pane.active
+    %table.table.table-hover
+      %thead
+        %tr
+          %th Imagen
+          %th Nombre
+          %th Precio
+          %th Descripcion
+      %tbody
+        - if @item.upgrade_items.any?
+          - @item.upgrade_items.each do |item|
+            %tr
+              %td
+                = image_tag item.image.url
+              %td= item.name
+              %td= item.price
+              %td= item.description
+    Aqui van los upgrades
+  #downgrade.tab-pane
+    %table.table.table-hover
+      %thead
+        %tr
+          %th Imagen
+          %th Nombre
+          %th Precio
+          %th Descripcion
+      %tbody
+        - if @item.downgrade_items.any?
+          - @item.downgrade_items.each do |item|
+            %tr
+              %td
+                = image_tag item.image.url
+              %td= item.name
+              %td= item.price
+              %td= item.description
+    Aqui van los downgrades
+:javascript
+  $('#upgradeTap a').click(function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+  })

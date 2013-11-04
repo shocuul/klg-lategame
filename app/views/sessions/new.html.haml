@@ -1,0 +1,12 @@
+- provide(:title, "Iniciar Sesion")
+%h1 Iniciar Session
+.row
+  .col-md-6.col-md-offset-3
+    = form_for(:session, url: sessions_path) do |f|
+      = f.label :email
+      = f.text_field :email
+      = f.label :password
+      = f.password_field :password
+      = f.submit "Iniciar Session", class: "btn btn-large btn-primary"
+    %p
+      ¿Nuevo Usuario? #{link_to "¡Registrate ahora!", signup_path}

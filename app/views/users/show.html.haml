@@ -1,0 +1,14 @@
+- provide(:title, @user.name)
+.row
+  %aside.col-xs-4
+    %section
+      %h1
+        = gravatar_for @user
+        = @user.name
+  .col-xs-8
+    = render 'follow_form' if signed_in?
+    - if @user.microposts.any?
+      %h3
+        Microposts (#{@user.microposts.count})
+      %ol.microposts= render @microposts
+      = will_paginate @microposts
