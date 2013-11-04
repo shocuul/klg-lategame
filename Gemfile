@@ -17,6 +17,7 @@ end
 #Custom Gem
 gem "haml"
 gem "haml-rails"
+gem "paperclip-dropbox", ">= 1.1.7"
 gem "ckeditor"
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'

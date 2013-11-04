@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Nixie+One);
 /*////////////////////////////////////////////////////*/
 /*                     Custom CSS
 /*    Jose David Pacheco Valedo
@@ -35,6 +36,10 @@ body{
 	-o-background-size: cover;
 	color: $letterColor;
 	padding-top: 70px;
+}
+
+.row{
+	padding: 2em;
 }
 
 section{
@@ -77,6 +82,7 @@ textarea{
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nixie One', cursive;
   line-height: 1;
 }
 

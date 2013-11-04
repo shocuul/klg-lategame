@@ -14,7 +14,9 @@ class Item < ActiveRecord::Base
 
 	validates :name , :price, :description, presence: true
 	validates :image, :attachment_presence => true
-	has_attached_file :image
+	has_attached_file :image,
+		:storage => :dropbox,
+		:dropbox_credentials => Rails.root.join("config/dropbox.yml")
 
 	def anyupgrade?(other_item)
 		item_relationships.find_by(upgrade_id: other_item.id)
