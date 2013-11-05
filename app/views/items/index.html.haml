@@ -7,6 +7,15 @@
         %span.icon-lol
           <img src="#{item.image.url}" />
         %span.name-lol #{item.name}
-        = link_to 'Edit', edit_item_path(item)  
+        = link_to 'Edit', edit_item_path(item),class:"label label-warning"  
 %br/
 = link_to 'New Item', new_item_path
+:javascript
+  $(".tooltip").tooltip({
+  
+  })
+  $("a[rel=tooltip]").tooltip({
+  
+    html: true ,  placement: 'auto'
+  
+  })

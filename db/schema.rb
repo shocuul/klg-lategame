@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131016152256) do
+ActiveRecord::Schema.define(version: 20131105222233) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -64,6 +64,17 @@ ActiveRecord::Schema.define(version: 20131016152256) do
   add_index "items_relationships", ["downgrade_id"], name: "index_items_relationships_on_downgrade_id"
   add_index "items_relationships", ["upgrade_id", "downgrade_id"], name: "index_items_relationships_on_upgrade_id_and_downgrade_id", unique: true
   add_index "items_relationships", ["upgrade_id"], name: "index_items_relationships_on_upgrade_id"
+
+  create_table "masteries", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
 
   create_table "microposts", force: true do |t|
     t.string   "content"
