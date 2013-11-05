@@ -1,40 +1,12 @@
 %h1 Listing items
-%ul
-- @items.each do |item|
-  %li.i-box
-    = link_to item, rel: "tooltip", title: "#{render 'info', item: item}" do
-      %span.icon-lol
-        <img src="#{item.image.url}" />
-      %span.name-lol #{item.name}  
 
-%table
-  %thead
-    %tr
-      %th Imagen
-      %th Name
-      %th Price
-      %th Description
-      %th
-      %th
-      %th
-  %tbody
-    - @items.each do |item|
-      %tr
-        %td= image_tag item.image.url
-        %td= item.name
-        %td= item.price
-        %td= item.description
-        %td= link_to "Mostrar", item, rel: "tooltip", title: "#{render 'info', item: item}"
-        %td= link_to 'Edit', edit_item_path(item)
-        %td= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }
-:javascript
-  $(".tooltip").tooltip({
-  
-  })
-  $("a[rel=tooltip]").tooltip({
-  
-    html: true ,  placement: 'auto'
-  
-  })
+%ul.list-items
+  - @items.each do |item|
+    %li.i-box
+      = link_to item, rel: "tooltip", title: "#{render 'info', item: item}" do
+        %span.icon-lol
+          <img src="#{item.image.url}" />
+        %span.name-lol #{item.name}
+        = link_to 'Edit', edit_item_path(item)  
 %br/
 = link_to 'New Item', new_item_path
