@@ -1,5 +1,17 @@
 require 'spec_helper'
 
-describe "masteries/show.html.haml" do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe "masteries/show" do
+  before(:each) do
+    @mastery = assign(:mastery, stub_model(Mastery,
+      :name => "Name",
+      :description => "MyText"
+    ))
+  end
+
+  it "renders attributes in <p>" do
+    render
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(/Name/)
+    rendered.should match(/MyText/)
+  end
 end

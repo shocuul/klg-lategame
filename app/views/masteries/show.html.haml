@@ -1,2 +1,12 @@
-%h1 Masteries#show
-%p Find me in app/views/masteries/show.html.haml
+%p#notice= notice
+
+%p
+  %b Name:
+  = @mastery.name
+%p
+  %b Description:
+  = @mastery.description
+
+= link_to 'Edit', edit_mastery_path(@mastery)
+\|
+= link_to 'Back', masteries_path

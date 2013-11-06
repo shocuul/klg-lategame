@@ -1,0 +1,19 @@
+= form_for @mastery do |f|
+  - if @mastery.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@mastery.errors.count, "error")} prohibited this mastery from being saved:"
+      %ul
+        - @mastery.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :image
+    = f.file_field :image
+  .actions
+    = f.submit 'Save'

@@ -1,4 +1,24 @@
-- provide(:title, 'Todos los usuarios')
-%h1 Masteries
-%ul= render @masteries
-%p Find me in app/views/masteries/index.html.haml
+%h1 Listing masteries
+
+= link_to 'New Mastery', new_mastery_path
+%table
+  %tr
+    %th Imagen
+    %th Name
+    %th Description
+    %th
+    %th
+    %th
+
+  - @masteries.each do |mastery|
+    %tr
+      %td= image_tag mastery.image.url
+      %td= mastery.name
+      %td= mastery.description
+      %td= link_to 'Show', mastery
+      %td= link_to 'Edit', edit_mastery_path(mastery)
+      %td= link_to 'Destroy', mastery, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Mastery', new_mastery_path

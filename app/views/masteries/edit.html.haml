@@ -1,2 +1,7 @@
-%h1 Masteries#edit
-%p Find me in app/views/masteries/edit.html.haml
+%h1 Editing mastery
+
+= render 'form'
+
+= link_to 'Show', @mastery
+\|
+= link_to 'Back', masteries_path
