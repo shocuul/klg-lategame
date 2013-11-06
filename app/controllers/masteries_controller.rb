@@ -1,5 +1,5 @@
 class MasteriesController < ApplicationController
-	before_action :set_mastery, only:[:show, :edit, :update, :destroy]
+	before_action :set_masteries, only:[:show, :edit, :update, :destroy]
   def index
   	@masteries = Masteries.all
   end
@@ -8,16 +8,16 @@ class MasteriesController < ApplicationController
   end
 
   def new
-  	@mastery = Masteries.new
+  	@masteries = Masteries.new
   end
 
   def edit
   end
 
   def create
-  	@mastery = Masteries.new(mastery_params)
+  	@masteries = Masteries.new(masteries_params)
   	respond_to do |format|
-      if @mastery.save
+      if @masteries.save
         format.html { redirect_to @mastery, notice: 'Masteries was successfully created.' }
         format.json { render action: 'show', status: :created, location: @mastery }
       else
@@ -28,10 +28,10 @@ class MasteriesController < ApplicationController
   end
 
   private
-   def set_mastery
-      @mastery = Masteries.find(params[:id])
+   def set_masteries
+      @masteries = Masteries.find(params[:id])
    end
-   def mastery_params
+   def masteries_params
    	params.require(:masteries).permit(:name, :description,:image)
    end
 end

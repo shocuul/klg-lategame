@@ -1,7 +1,4 @@
 KlgLategame::Application.routes.draw do
-
-
-  
   mount Ckeditor::Engine => '/ckeditor'
   resources :users do
     member do
@@ -9,6 +6,7 @@ KlgLategame::Application.routes.draw do
     end
   end
   resources :masteries
+  
   resources :items do 
     member do
       get :relationships
